@@ -1,0 +1,159 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Options Framework Plugin\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-12-08 11:35+0800\n"
+"PO-Revision-Date: 2013-12-08 11:42+0800\n"
+"Last-Translator: Andrea Bersi\n"
+"Language-Team: Matt Varone <contact@mattvarone.com>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;_e;_x;__;esc_attr_e\n"
+"X-Poedit-Basepath: ../\n"
+"X-Generator: Poedit 1.6.1\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: includes/class-options-framework-admin.php:64
+#, php-format
+msgid ""
+"Your current theme does not have support for the Options Framework plugin.  "
+"<a href=\"%1$s\" target=\"_blank\">Learn More</a> | <a href=\"%2$s\">Hide "
+"Notice</a>"
+msgstr ""
+"SIl tema corrente non supporta Options Framework. <a href=\"%1$s\" target="
+"\"_blank\">Leggi info</a> | <a href=\"%2$s\">Nascondi avviso</a>"
+
+#: includes/class-options-framework-admin.php:116
+#: includes/class-options-framework-admin.php:117
+#: includes/class-options-framework-admin.php:342
+msgid "Theme Options"
+msgstr "Opzioni tema"
+
+#: includes/class-options-framework-admin.php:206
+msgid "Save Options"
+msgstr "Salva Opzioni"
+
+#: includes/class-options-framework-admin.php:207
+msgid "Restore Defaults"
+msgstr "Ripristina default"
+
+#: includes/class-options-framework-admin.php:207
+msgid "Click OK to reset. Any theme settings will be lost!"
+msgstr "Clicca su OK. Tutte le impostazioni verranno perse!"
+
+#: includes/class-options-framework-admin.php:240
+msgid "Default options restored."
+msgstr "Impostazioni default ripristinate."
+
+#: includes/class-options-framework-admin.php:294
+msgid "Options saved."
+msgstr "Opzioni salvate."
+
+#: includes/class-options-media-uploader.php:63
+msgid "No file chosen"
+msgstr ""
+
+#: includes/class-options-media-uploader.php:66
+#: includes/class-options-media-uploader.php:119
+msgid "Upload"
+msgstr "Upload"
+
+#: includes/class-options-media-uploader.php:68
+#: includes/class-options-media-uploader.php:120
+msgid "Remove"
+msgstr ""
+
+#: includes/class-options-media-uploader.php:71
+msgid "Upgrade your version of WordPress for full media support."
+msgstr ""
+
+#: includes/class-options-media-uploader.php:95
+msgid "View File"
+msgstr "Vedi file"
+
+#: includes/class-options-sanitization.php:241
+msgid "No Repeat"
+msgstr "Non ripetere"
+
+#: includes/class-options-sanitization.php:242
+msgid "Repeat Horizontally"
+msgstr "Ripeti orizzontalmente"
+
+#: includes/class-options-sanitization.php:243
+msgid "Repeat Vertically"
+msgstr "Ripeti verticalmente"
+
+#: includes/class-options-sanitization.php:244
+msgid "Repeat All"
+msgstr "Ripeti tutto"
+
+#: includes/class-options-sanitization.php:257
+msgid "Top Left"
+msgstr "Alto sinistra"
+
+#: includes/class-options-sanitization.php:258
+msgid "Top Center"
+msgstr "Alto centro"
+
+#: includes/class-options-sanitization.php:259
+msgid "Top Right"
+msgstr "Alto destra"
+
+#: includes/class-options-sanitization.php:260
+msgid "Middle Left"
+msgstr "Centro sinistra"
+
+#: includes/class-options-sanitization.php:261
+msgid "Middle Center"
+msgstr "Allineato al centro"
+
+#: includes/class-options-sanitization.php:262
+msgid "Middle Right"
+msgstr "Centro destra"
+
+#: includes/class-options-sanitization.php:263
+msgid "Bottom Left"
+msgstr "Basso sinistra"
+
+#: includes/class-options-sanitization.php:264
+msgid "Bottom Center"
+msgstr "Basso centro"
+
+#: includes/class-options-sanitization.php:265
+msgid "Bottom Right"
+msgstr "Basso destra"
+
+#: includes/class-options-sanitization.php:278
+msgid "Scroll Normally"
+msgstr "Scrolla normalmente"
+
+#: includes/class-options-sanitization.php:279
+msgid "Fixed in Place"
+msgstr "Blocca nella posizione"
+
+#: includes/class-options-sanitization.php:357
+msgid "Normal"
+msgstr "Normalw"
+
+#: includes/class-options-sanitization.php:358
+msgid "Italic"
+msgstr "Italico"
+
+#: includes/class-options-sanitization.php:359
+msgid "Bold"
+msgstr "Grassetto"
+
+#: includes/class-options-sanitization.php:360
+msgid "Bold Italic"
+msgstr "Grassetto italico"
+
+#~ msgid "Options Framework Internal Container"
+#~ msgstr "Options Framework contenitore interno"
+
+#~ msgid "Gallery"
+#~ msgstr "Galleria"
+
+#~ msgid "Previously Uploaded"
+#~ msgstr "caricato in precedenza"
