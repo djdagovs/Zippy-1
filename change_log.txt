@@ -1,0 +1,5 @@
+
+zippy 1.0.6
+
+1, Fix breadcrumb background color setting.
+2, Set default options after switch theme.

@@ -30,7 +30,7 @@ add_editor_style("editor-style.css");
 }
 endif; // zippy_setup
 add_action( 'after_setup_theme', 'zippy_setup' );
-
+add_action( 'after_setup_theme', 'zippy_on_switch_theme' );
 
 if ( !function_exists( 'zippy_of_get_option' ) ) {
 function zippy_of_get_option($name, $default = false) {
@@ -58,7 +58,7 @@ function zippy_on_switch_theme(){
  if(!get_option($optionsframework_settings['id'])){
  $config = array();
  $output = array();
- $location = apply_filters( 'options_framework_location', array('options.php') );
+ $location = apply_filters( 'options_framework_location', array('admin-options.php') );
 	        if ( $optionsfile = locate_template( $location ) ) {
 	            $maybe_options = require_once $optionsfile;
 	            if ( is_array( $maybe_options ) ) {
@@ -125,8 +125,8 @@ function zippy_style_wp_head() {
 	}
 	else
 	{
-	if(isset($body_background['color']) && $body_background['color'] !=""){
-	echo "body{ background:".$body_background['color'].";}\n";
+	if(isset($breadcrumb_background['color']) && $breadcrumb_background['color'] !=""){
+	echo ".row-fluid .nav-molu{ background:".$breadcrumb_background['color'].";}\n";
 	}
 	}
 	}
@@ -165,7 +165,6 @@ add_action('wp_head', 'zippy_add_custom_css_header');
  
  
 function zippy_optionscheck_options_menu_params( $menu ) {
-	
 	$menu['page_title'] = __( 'Zippy Options', 'zippy');
 	$menu['menu_title'] = __( 'Zippy Options', 'zippy');
 	$menu['menu_slug'] = 'zippy-options';
@@ -616,7 +615,7 @@ dynamic_sidebar(1) ;
 			</div>
       <div class="comment-author vcard">
         
-			<span class="fnfn"><?php printf(__('%s </cite><span class="says">says:</span>'), get_comment_author_link()) ;?></span>
+			<span class="fnfn"><?php printf(__('%s </cite><span class="says">says:</span>',"zippy"), get_comment_author_link()) ;?></span>
 								<span class="comment-meta commentmetadata"><a href="<?php echo htmlspecialchars( get_comment_link( $comment->comment_ID ) ) ;?>">
 <?php printf(__('%1$s at %2$s','zippy'), get_comment_date(), get_comment_time()) ;?></a>
 <?php edit_comment_link(__('(Edit)','zippy'),'  ','') ;?></span>

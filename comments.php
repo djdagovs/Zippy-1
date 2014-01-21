@@ -50,7 +50,7 @@
 
 	 <?php else : // comments are closed ?>
 		<!-- If comments are closed. -->
-		<p class="nocomments"><?php _e('Comments are closed.', 'zippy'); ?></p>
+		<p class="nocomments"><?php //_e('Comments are closed.', 'zippy'); ?></p>
 
 	<?php endif; ?>
 <?php endif; ?>
