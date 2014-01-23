@@ -2,7 +2,7 @@
 /**
  * Posts loop
  *
- * @package WordPress
+ 
  */
    $comments = get_comments_number(get_the_ID());
    $comment_unit = $comments <= 1?__("Comment","zippy"):__("Comments","zippy");

@@ -7,7 +7,6 @@ require_once( 'options-framework/options-framework.php' );
 require_once( 'includes/metabox-options.php' );
 require_once( 'includes/register-widget.php' );
 require_once( 'includes/class-breadcrumb.php' );
-require_once( 'includes/slideshow.php' );
 if ( ! isset( $content_width ) ) $content_width = 1000;
 /* 
  * Helper function to return the theme option value. If no value has been saved, it returns $default.
@@ -218,35 +217,19 @@ if(!function_exists('zippy_favicon'))
 
 
   function zippy_custom_scripts(){
-    global $post;
+ 
     wp_enqueue_script('jquery');
  	wp_register_script( 'zippy-default', ZIPPY_THEME_BASE_URL.'/js/zippy.js', false, '', false );
 	wp_enqueue_script('zippy-default');
 	if ( is_singular() ){
 	wp_enqueue_script( 'comment-reply' );}
-	 if(isset($post->ID) && is_numeric($post->ID)){
-	$top_slider      = get_post_meta( $post->ID, '_zippy_top_slider', true );
-	if($top_slider !="" && $top_slider!=0){
-	wp_register_script( 'camera', ZIPPY_THEME_BASE_URL.'/js/camera.min.js', false, '', false );
-	wp_enqueue_script('camera');
-	wp_register_script( 'easing', ZIPPY_THEME_BASE_URL.'/js/jquery.easing.1.3.js', false, '', false );
-	wp_enqueue_script('easing');	
-	wp_register_script( 'mobile', ZIPPY_THEME_BASE_URL.'/js/jquery.mobile.customized.min.js', false, '', false );
-	wp_enqueue_script('mobile');
 
-	
-	}
-	}
  }
  function zippy_custom_style(){
-    global $post;
-	if(isset($post->ID)){
-    $top_slider      = get_post_meta( $post->ID, '_zippy_top_slider', true );
-	if($top_slider !="" && $top_slider!=0){
-	 wp_register_style( 'camera_css', ZIPPY_THEME_BASE_URL.'/styles/camera.css', false, '', false );
-	wp_enqueue_style('camera_css');
-	}
-    }
+
+	wp_register_style( 'main_css', ZIPPY_THEME_BASE_URL.'/style.css', false, '', false );
+	wp_enqueue_style('main_css');
+	
 	wp_register_style( 'media_css', ZIPPY_THEME_BASE_URL.'/styles/media.css', false, '', false );
 	wp_enqueue_style('media_css');
  }
@@ -528,48 +511,58 @@ function zippy_native_pagenavi($echo,$wp_query){
 
 //// get breadcrumb wrapper and slider
 
-   function zippy_get_breadcrumb_slider(){
+   function zippy_get_breadcrumb(){
    global $post;
    $show_breadcrumb = "";
-   $top_slider = "";
+   
    if(isset($post->ID) && is_numeric($post->ID)){
     $show_breadcrumb = get_post_meta( $post->ID, '_zippy_show_breadcrumb', true );
-	$top_slider      = get_post_meta( $post->ID, '_zippy_top_slider', true );
 	}
 	if($show_breadcrumb == 1 || $show_breadcrumb==""){
 	echo  '<div class="row-fluid">
-<div class="nav-molu">
-<div class="container">';
+       <div class="nav-molu">
+         <div class="container">';
  new zippy_breadcrumb;
 echo '</div></div></div>';
 	}
-	if($top_slider !="" && $top_slider!=0){
+	}
+	
+	function zippy_get_slider(){
+	$top_slider = "";
+    
+	$return = '<div class="banner"><div class="camera_wrap camera_azure_skin" id="camera_wrap_banner">';
+	 for($i=1;$i<=5;$i++){
+	 $title = zippy_of_get_option('zippy_slide_title_'.$i);
+	 $text = zippy_of_get_option('zippy_slide_text_'.$i);
+	 $image = zippy_of_get_option('zippy_slide_image_'.$i);
+	 $link = zippy_of_get_option('zippy_slide_link_'.$i);
+	 
+	 if(isset($image) && strlen($image)>10){
 
-	$magee_custom_slider = get_post_meta( $top_slider, '_magee_custom_slider', true );
-	if(is_array($magee_custom_slider)){
-	echo '<div class="banner"><div class="camera_wrap camera_azure_skin" id="camera_wrap_banner">';
-	 foreach($magee_custom_slider as $slide){
-	 if(isset($slide['id']) && $slide['id']>0){
-	$title   =  isset($slide['title'])?$slide['title']:"";
-	$link    =  isset($slide['link'])?$slide['link']:"";
-	$caption =  isset($slide['caption'])?$slide['caption']:"";
-	$image = wp_get_attachment_image_src($slide['id'], 'full' ); 
-	if($image[0] !=""){
-	$thumb = zippy_new_thumb_resize( $image[0], 100, 75, $title,  true );
+	$thumb = zippy_new_thumb_resize( $image, 100, 75, $title,  true );
 	if($link!=""){$title = '<a href="'.esc_url($link).'">'.$title.'</a>';}
-	echo '<div data-thumb="'.$thumb.'" data-src="'.$image[0].'">
+	$return .= '<div data-thumb="'.$thumb.'" data-src="'.$image.'">
                 <div class="camera_caption fadeFromBottom">
-				<div class="slide-title">'.$title.'</div><p>'.$caption.'</p></div>
+				<div class="slide-title">'.$title.'</div><p>'.$text.'</p></div>
             </div>';
-			}
+	$top_slider = "active";
 			}
 
 	}
-		echo '</div></div><!--banner-->';
-	}
+		$return .= '</div></div><!--banner-->';
+	if($top_slider == "active"){
 	
-	}
+	wp_register_script( 'camera', ZIPPY_THEME_BASE_URL.'/js/camera.min.js', false, '', false );
+	wp_enqueue_script('camera');
+	wp_register_script( 'easing', ZIPPY_THEME_BASE_URL.'/js/jquery.easing.1.3.js', false, '', false );
+	wp_enqueue_script('easing');	
+	wp_register_script( 'mobile', ZIPPY_THEME_BASE_URL.'/js/jquery.mobile.customized.min.js', false, '', false );
+	wp_enqueue_script('mobile');
+	 wp_register_style( 'camera_css', ZIPPY_THEME_BASE_URL.'/styles/camera.css', false, '', false );
+	wp_enqueue_style('camera_css');
+	echo $return;
 	
+	} 
    }
    
    //// Get header social network icon list 

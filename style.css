@@ -1,13 +1,13 @@
 /*
 Theme Name: Zippy
 Theme URI: http://www.mageewp.com/zippy/
-Description: Zippy is a tiny clean responsive theme designed for users who want to do online business at home and people who desire to build a personal homepage with simple steps without knowing codes. Zippy includes flexible slider, social links and footer wedget options to design your site exactly as you wish.
-Version: 1.0.5
+Description: Zippy is a clean responsive free corporate wordpress theme designed for users who want to do online business at home and people who desire to build a personal blog with simple steps without knowing codes. Zippy enables to change background colours or upload background images to make website special. Other features includes flexible slider, customize fonts, social network links and footer widget options to design your site exactly as you wish.
+Version: 1.0.8
 Author: Magee
 Author URI: http://www.mageewp.com
 License: GNU General Public License
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: one-column, dark, light, gray, fixed-layout, custom-background, custom-colors, custom-header, custom-menu, sticky-post, theme-options, right-sidebar
+Tags: one-column, dark, light, gray, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, sticky-post, theme-options, right-sidebar
 
 Zippy Wordpress Theme has been created by mageewp.com,Copyright 2013 WordPress.org.
 Zippy Wordpress theme is released under the terms of GNU GPL.
@@ -1221,3 +1221,19 @@ clear:both;
 	display: none;
 }
 
+.post-edit-link {
+	background:-moz-linear-gradient(center top,#FFFFFF,#F8F8F8 1px,#F1F1F1) repeat scroll 0 0 rgba(0,0,0,0);
+	border:1px solid #DDDDDD;
+	color:#555555;
+	border-radius:5px;
+	box-shadow:0 1px 1px rgba(0,0,0,0.2);
+	font-size:14px;
+	font-weight:bold;
+	height:32px;
+	line-height:32px;
+	padding:0 10px;
+	text-align:center;
+	text-shadow:1px 1px 0 rgba(255,255,255,0.3);
+	display:inline-block;
+	margin:0 15px 15px 0;
+}

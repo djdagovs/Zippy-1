@@ -2,14 +2,14 @@
 /**
  * The Template for displaying all single posts.
  *
- * @package WordPress
+ 
  *
  * @since Zippy 1.0.0
  */
 
 get_header(); ?>
 
-<?php zippy_get_breadcrumb_slider();?>
+<?php zippy_get_breadcrumb();?>
 <div id="post-<?php the_ID(); ?>" <?php post_class("clear"); ?>>
 <div class="main_content">
 <div class="content_left ">

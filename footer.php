@@ -1,7 +1,7 @@
 <?php
 /**
  * The template for displaying the footer.
- * @package WordPress
+ 
 
  */
 
@@ -37,7 +37,7 @@
 <?php }?>
 
 <div class="main_content copyright_wrap">
-<div class="copyright">Zippy WordPress theme, Copyright © <?php echo date("Y");?>. All Rights Reserved. Powered by <a href="<?php echo esc_url("http://wordpress.org");?>">WordPress</a>. Designed by <a href="<?php echo esc_url("http://www.mageewp.com/");?>">MageeWP Themes</a></div>
+<div class="copyright">Copyright © <?php echo date("Y");?>. All Rights Reserved. Powered by <a href="<?php echo esc_url("http://wordpress.org");?>">WordPress</a>. Designed by <a href="<?php echo esc_url("http://www.mageewp.com/");?>">MageeWP Themes</a></div>
 </div><!--main_content-->
 <?php wp_footer(); ?>
 </body>

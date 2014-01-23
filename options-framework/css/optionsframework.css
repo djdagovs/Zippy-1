@@ -15,6 +15,7 @@
 }
 #optionsframework .section {
 	padding:10px 10px 0;
+	margin-bottom: 10px;
 }
 #optionsframework .group {
 	padding-bottom:40px;
@@ -216,3 +217,8 @@
 
 /* Additional*/
 #optionsframework .section .option .controls input[type=text]{ width:350px;}
+#optionsframework .section-start_group.group_close > div{ display:none;}
+
+#optionsframework .section-start_group{ padding:0; width:96%; margin:0 auto;border:1px solid #666;}
+#optionsframework .section-start_group > h4.heading{ font-size:14px; color:#FFFFFF; font-weight:bold; background:url(../images/arrow.png) right 10px center no-repeat #999;overflow: hidden; line-height: 30px; margin: 0;overflow: hidden;padding-left: 10px; cursor:pointer;}
+#optionsframework .section-start_group .section .controls{ width:90%;}

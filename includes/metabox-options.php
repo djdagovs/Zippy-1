@@ -85,12 +85,12 @@ class Zippy_metaboxClass {
 
 		// Sanitize the user input.
 		$show_breadcrumb  = sanitize_text_field( $_POST['zippy_show_breadcrumb'] );
-		$top_slider       = sanitize_text_field( $_POST['zippy_top_slider'] );
+	//	$top_slider       = sanitize_text_field( $_POST['zippy_top_slider'] );
 		
 
 		// Update the meta field.
 		update_post_meta( $post_id, '_zippy_show_breadcrumb', $show_breadcrumb );
-		update_post_meta( $post_id, '_zippy_top_slider', $top_slider );
+		//update_post_meta( $post_id, '_zippy_top_slider', $top_slider );
 	}
 
 
@@ -106,7 +106,7 @@ class Zippy_metaboxClass {
 
 		// Use get_post_meta to retrieve an existing value from the database.
 	    $show_breadcrumb = get_post_meta( $post->ID, '_zippy_show_breadcrumb', true );
-		$top_slider      = get_post_meta( $post->ID, '_zippy_top_slider', true );
+	//	$top_slider      = get_post_meta( $post->ID, '_zippy_top_slider', true );
 		$select_y = "";
 		$select_n = "";
 		if($show_breadcrumb == 1 || $show_breadcrumb == ""){$select_y = 'selected="selected"';}else{$select_n = 'selected="selected"';}
@@ -117,21 +117,14 @@ class Zippy_metaboxClass {
 		echo '</label> ';
 		echo '<select name="zippy_show_breadcrumb" id="zippy_show_breadcrumb"><option '.$select_y.' value="1">Yes</option><option '.$select_n .' value="0">No</option></select></p>';
 		
-       $posts = array();
-       $posts = get_posts(array( 'posts_per_page' => -1, 'post_type' => 'zippy_slider'));
-
-		echo '<p class="meta-options"><label for="zippy_top_slider" style="display: inline-block;width: 150px;">';
-		_e( 'Select Top Slideshow :', 'zippy' );
+      
+	/*	echo '<p class="meta-options"><label for="zippy_top_slider" style="display: inline-block;width: 150px;">';
+		_e( 'Enable Top Slideshow :', 'zippy' );
 		echo '</label> ';
-		echo '<select name="zippy_top_slider" id="zippy_top_slider"><option value="0">Disable Top Slideshow</option>';
-		if(isset($posts) && is_array($posts)){
-		foreach($posts as $slide){
-		$selected = "";
-		if($top_slider == $slide->ID){$selected = 'selected="selected"';}
-		echo '<option '.$selected .' value="'.$slide->ID.'">'.$slide->post_title.'</option>';
-		}
-		}
-		echo '</select></p>';
+		$select_y = "";
+		$select_n = "";
+		if($top_slider == 1 ){$select_y = 'selected="selected"';}else{$select_n = 'selected="selected"';}
+		echo '<select name="zippy_top_slider" id="zippy_top_slider"><option '.$select_n .' value="0">No</option><option '.$select_y.' value="1">Yes</option></select></p>';*/
 		
 	}
 }

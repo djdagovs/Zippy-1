@@ -1,5 +1,8 @@
 
-zippy 1.0.6
+zippy 1.0.7
 
 1, Fix breadcrumb background color setting.
 2, Set default options after switch theme.
+3, Remove Custom Post Type.
+4, Remove Custom Widget.
+5, Add adminpanel slideshow setting.

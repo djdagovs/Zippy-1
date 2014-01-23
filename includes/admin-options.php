@@ -134,37 +134,37 @@ function optionsframework_options() {
 		'name' => __('Facebook url', 'zippy'),
 		'desc' => __('Your facebook url', 'zippy'),
 		'id' => 'social_facebook',
-		'std' => esc_url('http://www.facebook.com/MagicThemes'),
+		'std' => esc_url('#'),
 		'type' => 'text');
 		$options[] = array(
 		'name' => __('Twitter url', 'zippy'),
 		'desc' => __('Your Twitter url', 'zippy'),
 		'id' => 'social_twitter',
-		'std' => esc_url('https://twitter.com/MageeTheme'),
+		'std' => esc_url('#'),
 		'type' => 'text');
 		$options[] = array(
 		'name' => __('Google plus url', 'zippy'),
 		'desc' => __('Your Google plus url', 'zippy'),
 		'id' => 'social_google_plus',
-		'std' => esc_url('https://plus.google.com/u/0/103901505944076802757'),
+		'std' => esc_url('#'),
 		'type' => 'text');
 		$options[] = array(
 		'name' => __('Youtube url', 'zippy'),
 		'desc' => __('Your Youtube Url', 'zippy'),
 		'id' => 'social_youtube',
-		'std' => esc_url('http://www.youtube.com/mageewp'),
+		'std' => esc_url('#'),
 		'type' => 'text');
 		$options[] = array(
 		'name' => __('Pinterest url', 'zippy'),
 		'desc' => __('Your Pinterest Url', 'zippy'),
 		'id' => 'social_pinterest',
-		'std' => '',
+		'std' => '#',
 		'type' => 'text');
 		$options[] = array(
 		'name' => __('Rss url', 'zippy'),
 		'desc' => __('Your Rss feed Url', 'zippy'),
 		'id' => 'social_rss',
-		'std' => '',
+		'std' => '#',
 		'type' => 'text');
 		
 	////	BODY
@@ -295,8 +295,49 @@ function optionsframework_options() {
 		'name' => __('Enable Home Page', 'zippy'),
 		'desc' => __('Active custom home page.  The standardized way of creating Static Front Pages: <a href="'.esc_url('http://codex.wordpress.org/Creating_a_Static_Front_Page').'" target="_blank">Creating a Static Front Page</a>', 'zippy'),
 		'id' => 'enable_home_page',
+		'std' => '1',
 		'type' => 'checkbox');
 		
+		//HOME PAGE SLIDER
+		$options[] = array('name' => __('Slideshow', 'zippy'),'id' => 'group_title','type' => 'title');
+		
+		$options[] = array('name' => __('Slide 1', 'zippy'),'id' => 'slide_group_start_1','type' => 'start_group','class'=>'group_close');
+		$options[] = array('name' => __('Image', 'zippy'),'id' => 'zippy_slide_image_1','type' => 'upload','std'=>ZIPPY_THEME_BASE_URL.'/images/zippy-banner-1.jpg');
+		$options[] = array('name' => __('Title', 'zippy'),'id' => 'zippy_slide_title_1','type' => 'text','std'=>'Title 1');
+		$options[] = array('name' => __('Text', 'zippy'),'id' => 'zippy_slide_text_1','type' => 'textarea','std'=>'Hic modo aliquid, ut infra ius textus amet tincidunt imago sedere involvent opportune. Usque essent omnia spatiosa satis sedeat. Yeah ... Sic. Nunquam tanta esse bonum est.');
+		$options[] = array('name' => __('Link', 'zippy'),'id' => 'zippy_slide_link_1','type' => 'text');
+		$options[] = array('name' => '','id' => 'slide_group_end_1','type' => 'end_group');
+		
+		$options[] = array('name' => __('Slide 2', 'zippy'),'id' => 'slide_group_start_2','type' => 'start_group','class'=>'group_close');
+		$options[] = array('name' => __('Image', 'zippy'),'id' => 'zippy_slide_image_2','type' => 'upload','std'=>ZIPPY_THEME_BASE_URL.'/images/zippy-banner-2.jpg');
+		$options[] = array('name' => __('Title', 'zippy'),'id' => 'zippy_slide_title_2','type' => 'text','std'=>'Title 2');
+		$options[] = array('name' => __('Text', 'zippy'),'id' => 'zippy_slide_text_2','type' => 'textarea','std'=>'Hic modo aliquid, ut infra ius textus amet tincidunt imago sedere involvent opportune. Usque essent omnia spatiosa satis sedeat. Yeah ... Sic. Nunquam tanta esse bonum est.');
+		$options[] = array('name' => __('Link', 'zippy'),'id' => 'zippy_slide_link_2','type' => 'text');
+		$options[] = array('name' => '','id' => 'slide_group_end_2','type' => 'end_group');
+		
+		$options[] = array('name' => __('Slide 3', 'zippy'),'id' => 'slide_group_start_3','type' => 'start_group','class'=>'group_close');
+		$options[] = array('name' => __('Image', 'zippy'),'id' => 'zippy_slide_image_3','type' => 'upload');
+		$options[] = array('name' => __('Title', 'zippy'),'id' => 'zippy_slide_title_3','type' => 'text');
+		$options[] = array('name' => __('Text', 'zippy'),'id' => 'zippy_slide_text_3','type' => 'textarea');
+		$options[] = array('name' => __('Link', 'zippy'),'id' => 'zippy_slide_link_3','type' => 'text');
+		$options[] = array('name' => '','id' => 'slide_group_end_3','type' => 'end_group');
+		
+		$options[] = array('name' => __('Slide 4', 'zippy'),'id' => 'slide_group_start_4','type' => 'start_group','class'=>'group_close');
+		$options[] = array('name' => __('Image', 'zippy'),'id' => 'zippy_slide_image_4','type' => 'upload');
+		$options[] = array('name' => __('Title', 'zippy'),'id' => 'zippy_slide_title_4','type' => 'text');
+		$options[] = array('name' => __('Text', 'zippy'),'id' => 'zippy_slide_text_4','type' => 'textarea');
+		$options[] = array('name' => __('Link', 'zippy'),'id' => 'zippy_slide_link_4','type' => 'text');
+		$options[] = array('name' => '','id' => 'slide_group_end_4','type' => 'end_group');
+		
+		$options[] = array('name' => __('Slide 5', 'zippy'),'id' => 'slide_group_start_5','type' => 'start_group','class'=>'group_close');
+		$options[] = array('name' => __('Image', 'zippy'),'id' => 'zippy_slide_image_5','type' => 'upload');
+		$options[] = array('name' => __('Title', 'zippy'),'id' => 'zippy_slide_title_5','type' => 'text');
+		$options[] = array('name' => __('Text', 'zippy'),'id' => 'zippy_slide_text_5','type' => 'textarea');
+		$options[] = array('name' => __('Link', 'zippy'),'id' => 'zippy_slide_link_5','type' => 'text');
+		$options[] = array('name' => '','id' => 'slide_group_end_5','type' => 'end_group');
+		
+		
+		//END HOME PAGE SLIDER
 		$options[] = array(
 		'name' => __('Short Description of The Top', 'zippy'),
 		'id' => 'homepage_short_description',
@@ -312,6 +353,7 @@ function optionsframework_options() {
 		'name' => __('Key Feature Image(Area #1)', 'zippy'),
 		'desc'=>__('Image Dimension: 260px * 150px ','zippy'),
 		'id' => 'key_feature_image_1',
+		'std' =>ZIPPY_THEME_BASE_URL.'/images/keyfeature.jpg',
 		'type' => 'upload');
 	  $options[] = array(
 		'name' => __('Key Feature Link(Area #1)', 'zippy'),
@@ -330,6 +372,7 @@ function optionsframework_options() {
 		'name' => __('Key Feature Description(Area #1)', 'zippy'),
 		'id' => 'key_feature_description_1',
 		'type' => 'editor',
+		'std' =>'Hic modo aliquid, ut infra ius textus amet tincidunt imago sedere involvent opportune. Usque essent omnia spatiosa satis sedeat. Yeah ... Sic. Nunquam tanta esse bonum est.',
 		'settings' => $wp_editor_settings );
   
     
@@ -341,6 +384,7 @@ function optionsframework_options() {
 		$options[] = array(
 		'name' => __('Key Feature Image(Area #2)', 'zippy'),
 		'id' => 'key_feature_image_2',
+		'std' =>ZIPPY_THEME_BASE_URL.'/images/keyfeature.jpg',
 		'type' => 'upload');
 		
 		$options[] = array(
@@ -353,6 +397,7 @@ function optionsframework_options() {
 		'name' => __('Key Feature Description(Area #2)', 'zippy'),
 		'id' => 'key_feature_description_2',
 		'type' => 'editor',
+		'std' =>'Hic modo aliquid, ut infra ius textus amet tincidunt imago sedere involvent opportune. Usque essent omnia spatiosa satis sedeat. Yeah ... Sic. Nunquam tanta esse bonum est.',
 		'settings' => $wp_editor_settings );
     
 		
@@ -365,6 +410,7 @@ function optionsframework_options() {
 		$options[] = array(
 		'name' => __('Key Feature Image(Area #3)', 'zippy'),
 		'id' => 'key_feature_image_3',
+		'std' =>ZIPPY_THEME_BASE_URL.'/images/keyfeature.jpg',
 		'type' => 'upload');
      $options[] = array(
 		'name' => __('Key Feature Link(Area #3)', 'zippy'),
@@ -376,6 +422,7 @@ function optionsframework_options() {
 		'name' => __('Key Feature Description(Area #3)', 'zippy'),
 		'id' => 'key_feature_description_3',
 		'type' => 'editor',
+		'std' =>'Hic modo aliquid, ut infra ius textus amet tincidunt imago sedere involvent opportune. Usque essent omnia spatiosa satis sedeat. Yeah ... Sic. Nunquam tanta esse bonum est.',
 		'settings' => $wp_editor_settings );
     
 

@@ -11,6 +11,10 @@ License: The icons are free for personal use and also free for commercial use.
 All icons are under GPL v2 have been created by our team.
 Copyright: Mageewp.com, http://www.mageewp.com
 
+Banner images
+License: Free for personal use and also free for commercial use. 
+Copyright: http://www.stockvault.net/
+
 Slideshow
 License: This theme uses Camera slideshow v1.3.4, which is under the MIT License. 
 Copyright: pixedelic.com, http://www.pixedelic.com/plugins/camera/

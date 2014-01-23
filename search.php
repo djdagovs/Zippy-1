@@ -1,10 +1,10 @@
 <?php
 /**
  * The search template file.
- * @package WordPress
+ 
  */
  get_header(); ?>
-<?php zippy_get_breadcrumb_slider();?>
+<?php zippy_get_breadcrumb();?>
 
 <div class="main_content">
   <div class="content_left ">

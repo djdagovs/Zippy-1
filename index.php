@@ -2,15 +2,22 @@
 /**
  * The main template file.
  *
- * @package WordPress
+ 
  */
 
 get_header(); ?>
-<?php zippy_get_breadcrumb_slider();?>
+<?php 
+ $enable_home_page = zippy_of_get_option('enable_home_page');
+ if($enable_home_page == 1 && is_front_page() && !is_page()){
+ zippy_get_slider();
+ }else{
+ zippy_get_breadcrumb();
+ }
+?>
 <div class="main_content">
 <?php
-   $enable_home_page = zippy_of_get_option('enable_home_page');
-  if($enable_home_page == 1 && (is_home() || is_front_page())){
+   
+  if($enable_home_page == 1 && is_front_page() && !is_page()){
    get_template_part("content","home");
    }
    else{
@@ -33,8 +40,6 @@ get_header(); ?>
 
 <div class="clear"></div>
 </div>
-
-
 <div class="content_right">
 <?php if ( function_exists('dynamic_sidebar')) : 
    if(is_active_sidebar(4)){
@@ -46,8 +51,6 @@ dynamic_sidebar(1) ;
 }
  endif; ?>
  </div>
-
-
 <div class="clear"></div>
 </div><!--main_content-->
 <?php

@@ -400,6 +400,18 @@ class Options_Framework_Interface {
 				$output .= '<div id="options-group-' . $counter . '" class="group ' . $class . '">';
 				$output .= '<h3>' . esc_html( $value['name'] ) . '</h3>' . "\n";
 				break;
+				
+				case "start_group":
+				$class = '';
+				$class = ! empty( $value['id'] ) ? $value['id'] : $value['name'];
+				$output .= '<div class="tab_item_group ' . $class . '">';
+				break;
+				case "end_group":
+				$output .= '</div>';
+				break;
+				case "title":
+					$output .= '<div class="group_title' . $class . '"></div>';			
+				break;
 			}
 
 			if ( ( $value['type'] != "heading" ) && ( $value['type'] != "info" ) ) {

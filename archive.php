@@ -2,11 +2,11 @@
 /**
  * The archive template file.
  *
- * @package WordPress
+ 
  */
 
 get_header(); ?>
-<?php zippy_get_breadcrumb_slider();?>
+<?php zippy_get_breadcrumb();?>
 <div class="main_content">
 <div class="content_left ">
  <?php if (have_posts()) :?>
