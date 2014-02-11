@@ -112,7 +112,7 @@ function zippy_style_wp_head() {
 	//// tagline typography
 	$tagline_typography = zippy_of_get_option('tagline_typography');
 	if ($tagline_typography) { 
-	echo '.logo span.tagline {font-family: ' . $tagline_typography['face']. '; font-size:'.$tagline_typography['size'] . '; font-style: ' . $tagline_typography['style'] . '; color:'.$tagline_typography['color'].';;font-weight:'.$tagline_typography['style'] . '}';
+	echo '.logo div.tagline {font-family: ' . $tagline_typography['face']. '; font-size:'.$tagline_typography['size'] . '; font-style: ' . $tagline_typography['style'] . '; color:'.$tagline_typography['color'].';font-weight:'.$tagline_typography['style'] . '}';
 	}
 	
 	//// breadcrumb background
