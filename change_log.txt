@@ -1,5 +1,7 @@
+zippy 1.0.9
+1, Fix Tagline Typography setting
 
-zippy 1.0.7
+zippy 1.0.8
 
 1, Fix breadcrumb background color setting.
 2, Set default options after switch theme.
