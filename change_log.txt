@@ -1,5 +1,7 @@
 zippy 1.0.9
 1, Fix Tagline Typography setting
+2, Add Slider control options
+3, Performance Optimization
 
 zippy 1.0.8
 

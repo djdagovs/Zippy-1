@@ -7,7 +7,7 @@
 
 ?>
 <?php
- $enable_footer_service = zippy_of_get_option('enable_footer_service','');
+ $enable_footer_service = zippy_options_array('enable_footer_service');
  
  if($enable_footer_service == 1){
 ?>
@@ -15,10 +15,10 @@
 <div class="box2">
 <?php 
  for($i=1;$i<=4;$i++){
- $footer_service_icon        = zippy_of_get_option('footer_service_icon_'.$i,'');
- $footer_service_link        = zippy_of_get_option('footer_service_link_'.$i,'');
- $footer_service_title       = zippy_of_get_option('footer_service_title_'.$i,'');
- $footer_service_description = zippy_of_get_option('footer_service_description_'.$i,'');
+ $footer_service_icon        = zippy_options_array('footer_service_icon_'.$i);
+ $footer_service_link        = zippy_options_array('footer_service_link_'.$i);
+ $footer_service_title       = zippy_options_array('footer_service_title_'.$i);
+ $footer_service_description = zippy_options_array('footer_service_description_'.$i);
  $footer_service_link        =($footer_service_link=="" || $footer_service_link=="http://")?"#":$footer_service_link;
 ?>
 <div class="columns-4 left footer_service_<?php echo $i;?>">

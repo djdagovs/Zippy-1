@@ -16,13 +16,6 @@ jQuery(document).ready(function(){
 			}						   
 });
 
-//// camera slider
-           if(jQuery("div.banner").length>0){
-			jQuery('#camera_wrap_banner').camera({
-				thumbnails: true,
-				height: '500px'
-			});
-		   }
 /*!
 /* Mobile Menu
 */

@@ -51,6 +51,36 @@ function zippy_of_get_option($name, $default = false) {
 }
 }
 
+if ( !function_exists( 'zippy_of_get_options' ) ) {
+function zippy_of_get_options($default = false) {
+	
+	$optionsframework_settings = get_option(ZIPPY_OPTIONS_PREFIXED.'optionsframework');
+	
+	// Gets the unique option id
+	$option_name = $optionsframework_settings['id'];
+	
+	if ( get_option($option_name) ) {
+		$options = get_option($option_name);
+	}
+		
+	if ( isset($options) ) {
+		return $options;
+	} else {
+		return $default;
+	}
+}
+}
+global $zippy_options;
+$zippy_options = zippy_of_get_options();
+
+function zippy_options_array($name){
+	global $zippy_options;
+	if(isset($zippy_options[$name]))
+	return $zippy_options[$name];
+	else
+	return "";
+}
+
 // set default options
 function zippy_on_switch_theme(){
  $optionsframework_settings = get_option( ZIPPY_OPTIONS_PREFIXED.'optionsframework' );
@@ -110,14 +140,14 @@ function zippy_style_wp_head() {
 	
 	
 	//// tagline typography
-	$tagline_typography = zippy_of_get_option('tagline_typography');
+	$tagline_typography = zippy_options_array('tagline_typography');
 	if ($tagline_typography) { 
 	echo '.logo div.tagline {font-family: ' . $tagline_typography['face']. '; font-size:'.$tagline_typography['size'] . '; font-style: ' . $tagline_typography['style'] . '; color:'.$tagline_typography['color'].';font-weight:'.$tagline_typography['style'] . '}';
 	}
 	
 	//// breadcrumb background
 	
-	$breadcrumb_background = zippy_of_get_option('breadcrumb_background');
+	$breadcrumb_background = zippy_options_array('breadcrumb_background');
 	if ($breadcrumb_background) {
 	if (isset($breadcrumb_background['image']) && $breadcrumb_background['image']!="") {
 	echo ".row-fluid .nav-molu{background:url(".$breadcrumb_background['image']. ")  ".$breadcrumb_background['repeat']." ".$breadcrumb_background['position']." ".$breadcrumb_background['attachment']."}\n";
@@ -130,7 +160,7 @@ function zippy_style_wp_head() {
 	}
 	}
 	//// body background
-	$body_background = zippy_of_get_option('body_background');
+	$body_background = zippy_options_array('body_background');
 	if ($body_background) {
 	if (isset($body_background['image']) && $body_background['image']!="") {
 	echo "body{background:url(".$body_background['image']. ")  ".$body_background['repeat']." ".$body_background['position']." ".$body_background['attachment']."}\n";
@@ -140,7 +170,7 @@ function zippy_style_wp_head() {
 	echo "body{ background:".$body_background['color'].";}\n";
 	}}}
 	//// content typography
-	$content_typography = zippy_of_get_option('content_typography');
+	$content_typography = zippy_options_array('content_typography');
 	if ($content_typography) { 
 	echo 'div.blog_item_content,div.the_content {font-family: ' . $content_typography['face']. '; font-size:'.$content_typography['size'] . '; font-style: ' . $content_typography['style'] . '; color:'.$content_typography['color'].';font-weight:'.$content_typography['style'] . ';}';
 	}
@@ -151,7 +181,7 @@ echo "</style>\n \n ";
 
 // Add custom css
 function zippy_add_custom_css_header(){
-  $custom_css = zippy_of_get_option('header_code','');
+  $custom_css = zippy_options_array('header_code');
   if(isset($custom_css) && $custom_css != ""){echo "<style type='text/css'>".$custom_css."</style>"; }
  } 
 
@@ -200,7 +230,7 @@ if(!function_exists('zippy_favicon'))
 {
 	function zippy_favicon()
 	{
-	    $url =  zippy_of_get_option('favicon', '' );
+	    $url =  zippy_options_array('favicon');
 		$icon_link = "";
 		if($url)
 		{
@@ -532,10 +562,10 @@ echo '</div></div></div>';
     
 	$return = '<div class="banner"><div class="camera_wrap camera_azure_skin" id="camera_wrap_banner">';
 	 for($i=1;$i<=5;$i++){
-	 $title = zippy_of_get_option('zippy_slide_title_'.$i);
-	 $text = zippy_of_get_option('zippy_slide_text_'.$i);
-	 $image = zippy_of_get_option('zippy_slide_image_'.$i);
-	 $link = zippy_of_get_option('zippy_slide_link_'.$i);
+	 $title = zippy_options_array('zippy_slide_title_'.$i);
+	 $text = zippy_options_array('zippy_slide_text_'.$i);
+	 $image = zippy_options_array('zippy_slide_image_'.$i);
+	 $link = zippy_options_array('zippy_slide_link_'.$i);
 	 
 	 if(isset($image) && strlen($image)>10){
 
@@ -550,6 +580,23 @@ echo '</div></div></div>';
 
 	}
 		$return .= '</div></div><!--banner-->';
+		
+		$slide_time = zippy_options_array("slide_time");
+		$easing     = zippy_options_array("easing");
+		$effect     = zippy_options_array("effect");
+		
+		$return .= '<script type="text/javascript">jQuery(document).ready(function(){
+           if(jQuery("div.banner").length>0){
+			jQuery("#camera_wrap_banner").camera({
+				thumbnails: true,
+				height: "500px",
+				easing: "'.($easing?$easing:"easeInOutExpo").'",
+				fx: "'.($effect?$effect:"random").'",
+				time: '.($slide_time?$slide_time:"4000").'
+			});
+		   }});
+		   </script>';
+		   
 	if($top_slider == "active"){
 	
 	wp_register_script( 'camera', ZIPPY_THEME_BASE_URL.'/js/camera.min.js', false, '', false );
@@ -572,7 +619,7 @@ echo '</div></div></div>';
    if(is_array($args)){
    $return = '<ul class="follow">';
    foreach($args as $social){
-   $social_link = zippy_of_get_option('social_'.$social);
+   $social_link = zippy_options_array('social_'.$social);
    if($social_link!=""){
     $return .=  '<li><a href="'.$social_link.'" target="_blank" title="'.ucwords(str_replace("_"," ",$social)).'"><img src="'.ZIPPY_THEME_BASE_URL.'/images/social/'.$social.'.png" /></a></li>';
 	}

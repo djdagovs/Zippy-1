@@ -6,7 +6,7 @@
 
 get_header(); ?>
 <?php 
- $enable_home_page = zippy_of_get_option('enable_home_page');
+ $enable_home_page = zippy_options_array('enable_home_page');
  if($enable_home_page == 1 && (is_home() || is_front_page())){
  zippy_get_slider();
  }else{

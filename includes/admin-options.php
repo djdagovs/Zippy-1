@@ -65,27 +65,8 @@ function optionsframework_options() {
 		'color' => false
 	);
 
-	// Pull all the categories into an array
-	$options_categories = array();
-	$options_categories_obj = get_categories();
-	foreach ($options_categories_obj as $category) {
-		$options_categories[$category->cat_ID] = $category->cat_name;
-	}
 
-	// Pull all tags into an array
-	$options_tags = array();
-	$options_tags_obj = get_tags();
-	foreach ( $options_tags_obj as $tag ) {
-		$options_tags[$tag->term_id] = $tag->name;
-	}
 
-	// Pull all the pages into an array
-	$options_pages = array();
-	$options_pages_obj = get_pages('sort_column=post_parent,menu_order');
-	$options_pages[''] = 'Select a page:';
-	foreach ($options_pages_obj as $page) {
-		$options_pages[$page->ID] = $page->post_title;
-	}
 
 	// If using image radio buttons, define a directory path
 	$imagepath =  ZIPPY_THEME_BASE_URL . '/images/';
@@ -172,13 +153,7 @@ function optionsframework_options() {
 		$options[] = array(
 		'name' => __('Body Style', 'zippy'),
 		'type' => 'heading');
-		
-        $options[] = array(
-		'name' =>  __('Body Background', 'zippy'),
-		'desc' => __('Change the body background CSS.', 'zippy'),
-		'id' => 'body_background',
-		'std' => $background_defaults,
-		'type' => 'background' );
+	
 		$options[] = array( 'name' => __('Content Typography', 'zippy'),
 		'desc' => __('Content typography.', 'zippy'),
 		'id' => "content_typography",
@@ -292,8 +267,8 @@ function optionsframework_options() {
 		'type' => 'heading');
 		
 		$options[] = array(
-		'name' => __('Enable Home Page', 'zippy'),
-		'desc' => __('Active custom home page.  The standardized way of creating Static Front Pages: <a href="'.esc_url('http://codex.wordpress.org/Creating_a_Static_Front_Page').'" target="_blank">Creating a Static Front Page</a>', 'zippy'),
+		'name' => __('Enable Zippy Home Page Layout', 'zippy'),
+		'desc' => __('Active zippy home page Layout.  The standardized way of creating Static Front Pages: <a href="'.esc_url('http://codex.wordpress.org/Creating_a_Static_Front_Page').'" target="_blank">Creating a Static Front Page</a>', 'zippy'),
 		'id' => 'enable_home_page',
 		'std' => '1',
 		'type' => 'checkbox');
@@ -336,6 +311,66 @@ function optionsframework_options() {
 		$options[] = array('name' => __('Link', 'zippy'),'id' => 'zippy_slide_link_5','type' => 'text');
 		$options[] = array('name' => '','id' => 'slide_group_end_5','type' => 'end_group');
 		
+		$easing_array = array(
+		"easeInOutExpo"=>"easeInOutExpo",
+		"easeOutQuad"=>"easeOutQuad",
+		"easeInQuad"=>"easeInQuad",
+		"easeOutQuad"=>"easeOutQuad",
+		"easeInOutQuad"=>"easeInOutQuad",
+		"easeInCubic"=>"easeInCubic",
+		"easeOutCubic"=>"easeOutCubic",
+		"easeInOutCubic"=>"easeInOutCubic",
+		"easeInQuart"=>"easeInQuart",
+		"easeOutQuart"=>"easeOutQuart",
+		"easeInOutQuart"=>"easeInOutQuart",
+		
+		"easeInQuint"=>"easeInQuint",
+		"easeOutQuint"=>"easeOutQuint",
+		"easeInOutQuint"=>"easeInOutQuint",
+		"easeInSine"=>"easeInSine",
+		"easeOutSine"=>"easeOutSine",
+		
+		"easeInOutSine"=>"easeInOutSine",
+		"easeInExpo"=>"easeInExpo",
+		"easeOutExpo"=>"easeOutExpo",
+		"easeInOutExpo"=>"easeInOutExpo",
+		"easeInCirc"=>"easeInCirc",
+		
+		"easeOutCirc"=>"easeOutCirc",
+		"easeInOutCirc"=>"easeInOutCirc",
+		"easeInElastic"=>"easeInElastic",
+		"easeOutElastic"=>"easeOutElastic",
+		"easeInOutElastic"=>"easeInOutElastic",
+		
+		"easeInBack"=>"easeInBack",
+		"easeOutBack"=>"easeOutBack",
+		"easeInOutBack"=>"easeInOutBack",
+		"easeInBounce"=>"easeInBounce",
+		"easeOutBounce"=>"easeOutBounce",
+		"easeInOutBounce"=>"easeInOutBounce"
+		);
+		$effect_array = array(
+		'random'=>'random','simpleFade'=>'simpleFade', 'curtainTopLeft'=>'curtainTopLeft', 'curtainTopRight'=>'curtainTopRight', 'curtainBottomLeft'=>'curtainBottomLeft', 'curtainBottomRight'=>'curtainBottomRight', 'curtainSliceLeft'=>'curtainSliceLeft', 'curtainSliceRight'=>'curtainSliceRight', 'blindCurtainTopLeft'=>'blindCurtainTopLeft', 'blindCurtainTopRight'=>'blindCurtainTopRight', 'blindCurtainBottomLeft'=>'blindCurtainBottomLeft', 'blindCurtainBottomRight'=>'blindCurtainBottomRight', 'blindCurtainSliceBottom'=>'blindCurtainSliceBottom', 'blindCurtainSliceTop'=>'blindCurtainSliceTop', 'stampede'=>'stampede', 'mosaic'=>'mosaic', 'mosaicReverse'=>'mosaicReverse', 'mosaicRandom'=>'mosaicRandom', 'mosaicSpiral'=>'mosaicSpiral', 'mosaicSpiralReverse'=>'mosaicSpiralReverse', 'topLeftBottomRight'=>'topLeftBottomRight', 'bottomRightTopLeft'=>'bottomRightTopLeft', 'bottomLeftTopRight'=>'bottomLeftTopRight', 'bottomLeftTopRight'=>'bottomLeftTopRight'
+		);
+		
+		$options[] = array(
+                'name' => __('Slide Easing', 'zippy'),
+                'id' => 'easing',
+                'std' => '0',
+                'type' => 'select',
+                'options' => $easing_array);
+		$options[] = array(
+                'name' => __('Slide Effect', 'zippy'),
+                'id' => 'effect',
+                'std' => '0',
+                'type' => 'select',
+                'options' => $effect_array);
+		$options[] = array(
+		'name' => __('Slide Time', 'zippy'),
+		'id' => 'slide_time',
+		'std' => '4000',
+		'desc'=>'Milliseconds between the end of the sliding effect and the start of the nex one.',
+		'type' => 'text');		
 		
 		//END HOME PAGE SLIDER
 		$options[] = array(
