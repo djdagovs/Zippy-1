@@ -586,12 +586,15 @@ echo '</div></div></div>';
 		$slide_time = zippy_options_array("slide_time");
 		$easing     = zippy_options_array("easing");
 		$effect     = zippy_options_array("effect");
+		$slide_height     = zippy_options_array("slide_height");
+		$slide_height     = $slide_height==""?"30%":$slide_height;
+		
 		
 		$return .= '<script type="text/javascript">jQuery(document).ready(function(){
            if(jQuery("div.banner").length>0){
 			jQuery("#camera_wrap_banner").camera({
 				thumbnails: true,
-				height: "500px",
+				height: "'.$slide_height.'",
 				easing: "'.($easing?$easing:"easeInOutExpo").'",
 				fx: "'.($effect?$effect:"random").'",
 				time: '.($slide_time?$slide_time:"4000").'

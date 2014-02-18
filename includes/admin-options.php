@@ -366,6 +366,13 @@ function optionsframework_options() {
                 'type' => 'select',
                 'options' => $effect_array);
 		$options[] = array(
+		'name' => __('Slide Height', 'zippy'),
+		'id' => 'slide_height',
+		'std' => '30%',
+		'desc'=>__('Both formats: Percentage or Pixel(e.g. "30%" or "400px").','zippy'),
+		'type' => 'text');	
+		
+		$options[] = array(
 		'name' => __('Slide Time', 'zippy'),
 		'id' => 'slide_time',
 		'std' => '4000',
