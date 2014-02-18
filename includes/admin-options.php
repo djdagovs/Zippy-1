@@ -369,7 +369,7 @@ function optionsframework_options() {
 		'name' => __('Slide Time', 'zippy'),
 		'id' => 'slide_time',
 		'std' => '4000',
-		'desc'=>'Milliseconds between the end of the sliding effect and the start of the nex one.',
+		'desc'=>__('Milliseconds between the end of the sliding effect and the start of the nex one.','zippy'),
 		'type' => 'text');		
 		
 		//END HOME PAGE SLIDER

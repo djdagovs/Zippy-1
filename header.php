@@ -8,6 +8,7 @@
 <html <?php language_attributes(); ?>>
 <head>
 <meta charset="<?php bloginfo( 'charset' ); ?>" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title><?php wp_title('|', true, 'right'); ?></title>
 <?php wp_head(); ?>
 </head>
@@ -27,9 +28,9 @@
    <div class="nav_menu">
 
         <?php
-if(function_exists('wp_nav_menu')) {
+
 wp_nav_menu(array('theme_location'=>'primary','depth'=>0,'container'=>'','container_class'=>'main-menu','menu_id'=>'menu-main','menu_class'=>'main-nav','link_before' => '<span>', 'link_after' => '</span>'));
-}
+
 ?> </div>
 
 </div>

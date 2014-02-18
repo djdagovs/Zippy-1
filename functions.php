@@ -29,7 +29,7 @@ add_editor_style("editor-style.css");
 }
 endif; // zippy_setup
 add_action( 'after_setup_theme', 'zippy_setup' );
-add_action( 'after_setup_theme', 'zippy_on_switch_theme' );
+
 
 if ( !function_exists( 'zippy_of_get_option' ) ) {
 function zippy_of_get_option($name, $default = false) {
@@ -83,6 +83,7 @@ function zippy_options_array($name){
 
 // set default options
 function zippy_on_switch_theme(){
+global $zippy_options;
  $optionsframework_settings = get_option( ZIPPY_OPTIONS_PREFIXED.'optionsframework' );
  if(!get_option($optionsframework_settings['id'])){
  $config = array();
@@ -112,9 +113,10 @@ function zippy_on_switch_theme(){
 		}
 		add_option($optionsframework_settings['id'],$output);
 }
+$zippy_options = zippy_of_get_options();
 }
 add_action('after_switch_theme', 'zippy_on_switch_theme');
-
+add_action( 'after_setup_theme', 'zippy_on_switch_theme' );
 /* 
  * This is an example of how to add custom scripts to the options panel.
  * This one shows/hides the an option when a checkbox is clicked.
@@ -142,7 +144,7 @@ function zippy_style_wp_head() {
 	//// tagline typography
 	$tagline_typography = zippy_options_array('tagline_typography');
 	if ($tagline_typography) { 
-	echo '.logo div.tagline {font-family: ' . $tagline_typography['face']. '; font-size:'.$tagline_typography['size'] . '; font-style: ' . $tagline_typography['style'] . '; color:'.$tagline_typography['color'].';font-weight:'.$tagline_typography['style'] . '}';
+	echo '.logo div.tagline {font-family: ' . $tagline_typography['face']. '; font-size:'.$tagline_typography['size'] . '; font-style: ' . $tagline_typography['style'] . '; color:'.$tagline_typography['color'].';font-weight:'.$tagline_typography['style'] . '; }';
 	}
 	
 	//// breadcrumb background
@@ -172,7 +174,7 @@ function zippy_style_wp_head() {
 	//// content typography
 	$content_typography = zippy_options_array('content_typography');
 	if ($content_typography) { 
-	echo 'div.blog_item_content,div.the_content {font-family: ' . $content_typography['face']. '; font-size:'.$content_typography['size'] . '; font-style: ' . $content_typography['style'] . '; color:'.$content_typography['color'].';font-weight:'.$content_typography['style'] . ';}';
+	echo 'div.blog_item_content,div.the_content {font-family: ' . $content_typography['face']. '; font-size:'.$content_typography['size'] . '; font-style: ' . $content_typography['style'] . '; color:'.$content_typography['color'].';font-weight:'.$content_typography['style'] . ' }';
 	}
 	////
 	if(is_numeric($content_width)){echo "body div.main_content{width:".$content_width."px;}";}
